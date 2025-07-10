@@ -1,0 +1,79 @@
+# Ignore all .env files anywhere (but specifically not .env.example) #
+**/.env
+
+# Logs #
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+# Node modules and build output (frontend) #
+node_modules
+dist
+dist-ssr
+*.local
+
+# Editor Junk #
+.vscode/*
+!.vscode/extensions.json
+.idea
+.DS_Store
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# Backend build output and files #
+backend/target/
+!backend/.mvn/wrapper/maven-wrapper.jar
+!**/backend/src/main/**/target/
+!**/backend/src/test/**/target/
+
+# IDE and project files (backend) #
+.apt_generated
+.classpath
+.factorypath
+.project
+.settings
+.springBeans
+.sts4-cache
+
+# IntelliJ #
+*.iws
+*.iml
+*.ipr
+
+# NetBeans #
+/nbproject/private/
+/nbbuild/
+/dist/
+/nbdist/
+/.nb-gradle/
+
+# VS Code #
+.vscode/
+
+# Backend specific files #
+HELP.md
+backend/src/main/resources/application.properties
+*.properties
+
+# Compiled Java files #
+*.class
+
+# Package files #
+*.jar
+*.war
+*.nar
+*.ear
+*.zip
+*.tar.gz
+*.rar
+
+# Virtual machine crash logs #
+hs_err_pid*
+replay_pid*
