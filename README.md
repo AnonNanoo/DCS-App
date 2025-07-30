@@ -4,7 +4,7 @@
 ---
 
 
-# Device Connection Status App
+# Device Connection Surveillance App
 
 Ein Fullstack-Projekt zur Überwachung von Netzwerkgeräten, prüft automatisch oder manuell, ob Geräte erreichbar sind (online/offline) und visualisiert den Status über eine schön gestaltete Website.
 
