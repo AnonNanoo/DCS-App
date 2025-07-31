@@ -60,7 +60,7 @@ backend/target/
 # Backend specific files #
 HELP.md
 backend/src/main/resources/application.properties
-*.properties
+!**/*.properties.example
 
 # Compiled Java files #
 *.class
