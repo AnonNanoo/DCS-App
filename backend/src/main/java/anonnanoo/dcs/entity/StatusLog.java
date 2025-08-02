@@ -1,6 +1,9 @@
 package anonnanoo.dcs.entity;
 
 import jakarta.persistence.*;
+import org.hibernate.annotations.OnDelete;
+import org.hibernate.annotations.OnDeleteAction;
+
 import java.time.LocalDateTime;
 import java.util.UUID;
 
@@ -12,10 +15,6 @@ public class StatusLog {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private UUID id;
 
-    @ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name = "device_id", nullable = false)
-    private Device device;
-
     @Enumerated(EnumType.STRING)
     @Column(nullable = false)
     private DeviceStatus status;
@@ -25,9 +24,8 @@ public class StatusLog {
 
     public StatusLog() {}
 
-    public StatusLog(UUID id, Device device, DeviceStatus status, LocalDateTime timestamp) {
+    public StatusLog(UUID id, DeviceStatus status, LocalDateTime timestamp) {
         this.id = id;
-        this.device = device;
         this.status = status;
         this.timestamp = timestamp;
     }
@@ -38,14 +36,6 @@ public class StatusLog {
 
     public void setId(UUID id) {
         this.id = id;
-    }
-
-    public Device getDevice() {
-        return device;
-    }
-
-    public void setDevice(Device device) {
-        this.device = device;
     }
 
     public DeviceStatus getStatus() {
@@ -68,7 +58,6 @@ public class StatusLog {
     public String toString() {
         return "StatusLog{" +
                 "id=" + id +
-                ", device=" + device +
                 ", status=" + status +
                 ", timestamp=" + timestamp +
                 '}';

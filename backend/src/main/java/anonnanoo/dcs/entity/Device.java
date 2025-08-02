@@ -25,6 +25,7 @@ public class Device {
     @Column
     private LocalDateTime previousCheck;
 
+
     public Device() {}
 
     public Device(UUID id, String ipAddress, String name, DeviceStatus status, LocalDateTime previousCheck) {
