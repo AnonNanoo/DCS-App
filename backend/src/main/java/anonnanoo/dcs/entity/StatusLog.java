@@ -2,14 +2,15 @@ package anonnanoo.dcs.entity;
 
 import jakarta.persistence.*;
 import java.time.LocalDateTime;
+import java.util.UUID;
 
 @Entity
 @Table(name = "status_logs")
 public class StatusLog {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private UUID id;
 
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "device_id", nullable = false)
@@ -24,18 +25,18 @@ public class StatusLog {
 
     public StatusLog() {}
 
-    public StatusLog(Long id, Device device, DeviceStatus status, LocalDateTime timestamp) {
+    public StatusLog(UUID id, Device device, DeviceStatus status, LocalDateTime timestamp) {
         this.id = id;
         this.device = device;
         this.status = status;
         this.timestamp = timestamp;
     }
 
-    public Long getId() {
+    public UUID getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(UUID id) {
         this.id = id;
     }
 

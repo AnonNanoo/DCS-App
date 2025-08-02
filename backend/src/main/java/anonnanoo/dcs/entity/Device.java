@@ -2,14 +2,15 @@ package anonnanoo.dcs.entity;
 
 import jakarta.persistence.*;
 import java.time.LocalDateTime;
+import java.util.UUID;
 
 @Entity
 @Table(name = "devices")
 public class Device {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private UUID id;
 
     @Column(nullable = false, unique = true)
     private String ipAddress;
@@ -26,7 +27,7 @@ public class Device {
 
     public Device() {}
 
-    public Device(Long id, String ipAddress, String name, DeviceStatus status, LocalDateTime previousCheck) {
+    public Device(UUID id, String ipAddress, String name, DeviceStatus status, LocalDateTime previousCheck) {
         this.id = id;
         this.ipAddress = ipAddress;
         this.name = name;
@@ -34,11 +35,11 @@ public class Device {
         this.previousCheck = previousCheck;
     }
 
-    public Long getId() {
+    public UUID getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(UUID id) {
         this.id = id;
     }
 
