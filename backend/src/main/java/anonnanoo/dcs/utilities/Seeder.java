@@ -51,7 +51,8 @@ public class Seeder implements CommandLineRunner {
             StatusLog systemStatusLog = new StatusLog(
                     null,
                     DeviceStatus.ONLINE,
-                    LocalDateTime.now().minusMinutes(3)
+                    LocalDateTime.now().minusMinutes(3),
+                    "System is operational"
             );
 
             statusLogRepository.save(systemStatusLog);
