@@ -8,14 +8,14 @@ const githubProjectUrl = "https://github.com/AnonNanoo/DCS-App";
 
 export default function Footer() {
     return (
-        <footer className="bg-secondary text-secondary-foreground py-4">
-            <div className="container mx-auto max-w-7xl px-8 flex items-center justify-between relative">
+        <footer className="w-screen bg-secondary text-secondary-foreground py-4 mt-auto">
+            <div className="w-full max-w-none flex items-center justify-between px-4">
                 
-                <p className="absolute left-1/2 transform -translate-x-1/2 text-sm text-center">
+                <p className="text-sm">
                     &copy; {new Date().getFullYear()} DCS-App. All rights reserved.
                 </p>
 
-                <div className="flex items-center gap-4 ml-auto">
+                <div className="flex items-center gap-4">
                     <a
                         href={githubUrl}
                         target="_blank"
