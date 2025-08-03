@@ -31,6 +31,13 @@ public class StatusLog {
         this.message = (message.isBlank() || message == null) ? "-" : message;
     }
 
+    @PrePersist
+    protected void onCreate() {
+        if (this.timestamp == null) {
+            this.timestamp = LocalDateTime.now();
+        }
+    }
+
     public UUID getId() {
         return id;
     }
