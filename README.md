@@ -23,15 +23,21 @@ Ein Fullstack-Projekt zur Überwachung von Netzwerkgeräten, prüft automatisch 
 - Logging der Statusänderungen in der Datenbank
 - Frontend mit Tabellenansicht / Card-ansicht und Live-Status
 
-## 🛠️ API-Endpunkte (Beispiel, not final)
+## 🛠️ API-Endpunkte (final)
 
 ```
 
-GET    /api/devices             → Liste aller Geräte
-POST   /api/devices             → Neues Gerät hinzufügen
-GET    /api/devices/{id}        → Gerätedetails
-GET    /api/devices/{id}/status → Aktueller Online-Status
-GET    /api/logs?deviceId=1     → Verlauf der Statusprüfungen
+GET     /api/devices           → Liste aller Geräte  
+POST    /api/devices           → Neues Gerät hinzufügen  
+GET     /api/devices/{id}      → Gerätedetails  
+PUT     /api/devices/{id}      → Gerät editieren  
+DELETE  /api/devices/{id}      → Gerät löschen  
+
+GET     /api/status_log           → Liste aller Logs  
+POST    /api/status_log           → Neuen Log-Entry hinzufügen  
+GET     /api/status_log/{id}      → Details zu einem Log-Entry  
+DELETE  /api/status_log/{id}      → Log-Entry löschen  
+            
 
 ````
 
