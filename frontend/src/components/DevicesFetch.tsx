@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import {Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle} from "@/components/ui/card.tsx";
 import {Badge} from "@/components/ui/badge.tsx";
+import {DeleteDeviceDialog} from "@/components/DeleteDeviceDialog.tsx";
 
 interface Device {
     id: string;
@@ -50,7 +51,11 @@ export default function DeviceFetcher() {
                                 </p>
                             </CardContent>
                             <CardFooter>
-                                <p>Hi</p>
+                                <DeleteDeviceDialog
+                                    id={device.id}
+                                    name={device.name}
+                                    onDeleted={(id) => setDevices(devices.filter((d) => d.id !== id))}
+                                />
                             </CardFooter>
                         </Card>
                     ))}

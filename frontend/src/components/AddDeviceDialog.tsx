@@ -1,9 +1,8 @@
-"use client";
 
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription, DialogTrigger, DialogFooter } from "@/components/ui/dialog";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import { useState } from "react";
+import {type FormEvent, useState} from "react";
 
 const ipv4Regex = /^(25[0-5]|2[0-4]\d|1\d{2}|[1-9]?\d)(\.(25[0-5]|2[0-4]\d|1\d{2}|[1-9]?\d)){3}$/;
 
@@ -16,7 +15,7 @@ export function AddDeviceDialog() {
 
     const isIpValid = ipv4Regex.test(ipAddress);
 
-    async function handleSubmit(e: React.FormEvent) {
+    async function handleSubmit(e: FormEvent) {
         e.preventDefault();
         setError(null);
 
@@ -62,7 +61,7 @@ export function AddDeviceDialog() {
 
                 <form onSubmit={handleSubmit} className="space-y-4">
                     <div>
-                        <label htmlFor="name" className="block text-sm font-medium mb-1">
+                        <label className="block text-sm font-medium mb-1">
                             Name
                         </label>
                         <Input
@@ -77,7 +76,7 @@ export function AddDeviceDialog() {
                     </div>
 
                     <div>
-                        <label htmlFor="ipAddress" className="block text-sm font-medium mb-1">
+                        <label className="block text-sm font-medium mb-1">
                             IP Address
                         </label>
                         <Input
@@ -90,9 +89,7 @@ export function AddDeviceDialog() {
                             placeholder="192.168.1.1"
                             aria-invalid={!isIpValid && ipAddress.length > 0}
                         />
-                        {!isIpValid && ipAddress.length > 0 && (
-                            <p className="text-red-600 text-sm mt-1">Invalid IPv4 address format.</p>
-                        )}
+                        {!isIpValid && ipAddress.length > 0 && (<p className="text-red-600 text-sm mt-1">Invalid IPv4 address format.</p>)}
                     </div>
 
                     {error && <p className="text-red-600 text-sm">{error}</p>}
