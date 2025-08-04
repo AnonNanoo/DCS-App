@@ -1,8 +1,10 @@
 import {ModeToggle} from "@/components/theme/mode-toggle";
 import logo from "/dcs_logo.svg";
+import {AddDeviceDialog} from "@/components/AddDeviceDialog.tsx";
+
 
 export default function Header() {
-  return (
+    return (
       <header className="w-screen bg-secondary text-secondary-foreground m-0 p-0">
           <div className="w-full max-w-none flex items-center justify-between px-4 py-3">
               <div className="flex items-center gap-3">
@@ -15,6 +17,9 @@ export default function Header() {
                 <div className="flex flex-col">
                     <span className="text-3xl font-bold">DCS</span>
                 </div>
+              </div>
+              <div>
+                  <AddDeviceDialog>Add a new Device</AddDeviceDialog>
               </div>
 
               <div className="flex items-center gap-4">
