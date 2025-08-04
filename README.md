@@ -38,7 +38,6 @@ POST    /api/status_log           → Neuen Log-Entry hinzufügen
 GET     /api/status_log/{id}      → Details zu einem Log-Entry  
 DELETE  /api/status_log/{id}      → Log-Entry löschen  
             
-
 ````
 
 
