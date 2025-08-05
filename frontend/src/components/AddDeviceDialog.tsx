@@ -6,7 +6,11 @@ import {type FormEvent, useState} from "react";
 
 const ipv4Regex = /^(25[0-5]|2[0-4]\d|1\d{2}|[1-9]?\d)(\.(25[0-5]|2[0-4]\d|1\d{2}|[1-9]?\d)){3}$/;
 
-export function AddDeviceDialog() {
+type AddDeviceDialogProps = {
+    fetchDevices: () => void;
+};
+
+export function AddDeviceDialog({ fetchDevices }: AddDeviceDialogProps) {
     const [open, setOpen] = useState(false);
     const [name, setName] = useState("");
     const [ipAddress, setIpAddress] = useState("");
@@ -25,6 +29,7 @@ export function AddDeviceDialog() {
         }
 
         setLoading(true);
+
         try {
             const res = await fetch("http://localhost:8080/api/devices", {
                 method: "POST",
@@ -41,6 +46,7 @@ export function AddDeviceDialog() {
             setOpen(false);
 
             console.log("Device created:", createdDevice);
+            fetchDevices();
         } catch (err: any) {
             setError(err.message);
         } finally {

@@ -1,7 +1,5 @@
 import {ModeToggle} from "@/components/theme/mode-toggle";
 import logo from "/dcs_logo.svg";
-import {AddDeviceDialog} from "@/components/AddDeviceDialog.tsx";
-
 
 export default function Header() {
     return (
@@ -17,9 +15,6 @@ export default function Header() {
                 <div className="flex flex-col">
                     <span className="text-3xl font-bold">DCS</span>
                 </div>
-              </div>
-              <div>
-                  <AddDeviceDialog />
               </div>
 
               <div className="flex items-center gap-4">

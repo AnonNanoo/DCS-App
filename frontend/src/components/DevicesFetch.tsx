@@ -1,34 +1,16 @@
-import { useEffect, useState } from "react";
-import {Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle} from "@/components/ui/card.tsx";
-import {Badge} from "@/components/ui/badge.tsx";
-import {DeleteDeviceDialog} from "@/components/DeleteDeviceDialog.tsx";
-import {EditDeviceDialog} from "@/components/EditDeviceDialog.tsx";
+import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
+import { Badge } from "@/components/ui/badge";
+import { DeleteDeviceDialog } from "@/components/DeleteDeviceDialog";
+import { EditDeviceDialog } from "@/components/EditDeviceDialog";
 
-interface Device {
-    id: string;
-    name: string;
-    ipAddress: string;
-    status: "ONLINE" | "OFFLINE";
-    previousCheck: string | null;
-}
-
-export default function DeviceFetcher() {
-    const [devices, setDevices] = useState<Device[]>([]);
-
-    useEffect(() => {
-        fetch("http://localhost:8080/api/devices")
-            .then((res) => res.json())
-            .then((data) => {
-                setDevices(data);
-            });
-    }, []);
-
-
+export function DeviceFetcher({ devices, fetchDevices }: DeviceFetcherProps) {
     return (
         <>
             {devices.length === 0 ? (
-                <><h1 className="text-4xl font-bold text-center">Welcome to DCS</h1><p
-                    className="text-center mt-4 text-muted-foreground">Your Devices will show here.</p></>
+                <>
+                    <h1 className="text-4xl font-bold text-center">Welcome to DCS</h1>
+                    <p className="text-center mt-4 text-muted-foreground">Your Devices will show here.</p>
+                </>
             ) : (
                 <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
                     {devices.map((device) => (
@@ -55,15 +37,12 @@ export default function DeviceFetcher() {
                                 <DeleteDeviceDialog
                                     id={device.id}
                                     name={device.name}
-                                    onDeleted={(id) => setDevices(devices.filter((d) => d.id !== id))}
+                                    onDeleted={() => fetchDevices()}
                                 />
                                 <EditDeviceDialog
                                     device={{ id: device.id, name: device.name, ipAddress: device.ipAddress }}
-                                    onUpdated={(updatedDevice) => {
-                                        console.log("Updated:", updatedDevice);
-                                    }}
+                                    onUpdated={() => fetchDevices()}
                                 />
-
                             </CardFooter>
                         </Card>
                     ))}
@@ -71,5 +50,4 @@ export default function DeviceFetcher() {
             )}
         </>
     );
-
 }
