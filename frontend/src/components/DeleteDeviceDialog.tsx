@@ -1,12 +1,12 @@
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogFooter, DialogTrigger } from "@/components/ui/dialog"
 import { Button } from "@/components/ui/button"
 import { useState } from "react"
-import type { Device } from "@/types/device";
 
 type DeleteDeviceDialogProps = {
-    device: Device;
-    onDeleted: (id: string) => void;
-};
+    id: string
+    name: string
+    onDeleted: (id: string) => void
+}
 
 export function DeleteDeviceDialog({ id, name, onDeleted }: DeleteDeviceDialogProps) {
     const [open, setOpen] = useState(false)

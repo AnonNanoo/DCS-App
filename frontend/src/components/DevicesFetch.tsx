@@ -2,6 +2,14 @@ import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle }
 import { Badge } from "@/components/ui/badge";
 import { DeleteDeviceDialog } from "@/components/DeleteDeviceDialog";
 import { EditDeviceDialog } from "@/components/EditDeviceDialog";
+import { type Device } from "@/types/device";
+import type {Dispatch, SetStateAction} from "react";
+
+type DeviceFetcherProps = {
+    devices: Device[];
+    setDevices: Dispatch<SetStateAction<Device[]>>;
+    fetchDevices: () => void;
+};
 
 export function DeviceFetcher({ devices, fetchDevices }: DeviceFetcherProps) {
     return (
