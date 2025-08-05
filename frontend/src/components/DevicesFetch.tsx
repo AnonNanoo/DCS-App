@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import {Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle} from "@/components/ui/card.tsx";
 import {Badge} from "@/components/ui/badge.tsx";
 import {DeleteDeviceDialog} from "@/components/DeleteDeviceDialog.tsx";
+import {EditDeviceDialog} from "@/components/EditDeviceDialog.tsx";
 
 interface Device {
     id: string;
@@ -56,6 +57,13 @@ export default function DeviceFetcher() {
                                     name={device.name}
                                     onDeleted={(id) => setDevices(devices.filter((d) => d.id !== id))}
                                 />
+                                <EditDeviceDialog
+                                    device={{ id: device.id, name: device.name, ipAddress: device.ipAddress }}
+                                    onUpdated={(updatedDevice) => {
+                                        console.log("Updated:", updatedDevice);
+                                    }}
+                                />
+
                             </CardFooter>
                         </Card>
                     ))}
