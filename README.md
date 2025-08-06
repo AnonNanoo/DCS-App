@@ -31,12 +31,16 @@ GET     /api/devices           → Liste aller Geräte
 POST    /api/devices           → Neues Gerät hinzufügen  
 GET     /api/devices/{id}      → Gerätedetails  
 PUT     /api/devices/{id}      → Gerät editieren  
-DELETE  /api/devices/{id}      → Gerät löschen  
+DELETE  /api/devices/{id}      → Gerät löschen
+
+GET     /api/devices/scan/{id} → Gerät via nmap scannen
 
 GET     /api/status_log           → Liste aller Logs  
 POST    /api/status_log           → Neuen Log-Entry hinzufügen  
 GET     /api/status_log/{id}      → Details zu einem Log-Entry  
-DELETE  /api/status_log/{id}      → Log-Entry löschen  
+DELETE  /api/status_log/{id}      → Log-Entry löschen
+
+
             
 ````
 
