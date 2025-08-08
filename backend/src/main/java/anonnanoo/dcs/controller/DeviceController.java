@@ -6,6 +6,7 @@ import anonnanoo.dcs.entity.Device;
 import anonnanoo.dcs.entity.DeviceStatus;
 import anonnanoo.dcs.repository.DeviceRepository;
 import anonnanoo.dcs.repository.StatusLogRepository;
+import jakarta.transaction.Transactional;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -81,28 +82,25 @@ public class DeviceController {
 
 
     // Delete a Device by ID  --> /api/devices/{id}
+    @Transactional
     @DeleteMapping("/{id}")
     public ResponseEntity<?> deleteDevice(@PathVariable UUID id) {
         return deviceRepository.findById(id)
                 .map(device -> {
+                    // Due to relations, we MUST delete the status logs first
+                    statusLogRepository.deleteByDeviceId(device.getId());
+
+                    // And then the device itself
                     deviceRepository.delete(device);
                     return ResponseEntity.noContent().build();
                 })
                 .orElse(ResponseEntity.notFound().build());
     }
 
-    // Get the Status of a Device by ID  --> /api/devices/{id}/status
-    @GetMapping("/{id}/status")
-    public ResponseEntity<String> getDeviceStatus(@PathVariable UUID id) {
-        return deviceRepository.findById(id)
-                .map(device -> ResponseEntity.ok(device.getStatus().name()))
-                .orElse(ResponseEntity.notFound().build());
-    }
-
 
     // Scan a Device (using nmap) by ID  --> /api/devices/scan/{id}
     @GetMapping("/scan/{id}")
-    public Optional<ResponseEntity<?>> scanDevice(@PathVariable UUID id) {
+    public ResponseEntity<?> scanDevice(@PathVariable UUID id) {
         return deviceRepository.findById(id)
                 .map(device -> {
                     String ip = device.getIpAddress();
@@ -155,9 +153,12 @@ public class DeviceController {
                         return ResponseEntity.ok(scanResult);
 
                     } catch (Exception e) {
-                        return ResponseEntity.internalServerError().build();
+                        return ResponseEntity.internalServerError().body("Error scanning device: " + e.getMessage());
                     }
-                });
+                })
+                .orElse(ResponseEntity.notFound().build());
     }
+
+
 
 }

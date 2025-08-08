@@ -4,6 +4,7 @@ import { DeleteDeviceDialog } from "@/components/DeleteDeviceDialog";
 import { EditDeviceDialog } from "@/components/EditDeviceDialog";
 import { type Device } from "@/types/device";
 import type {Dispatch, SetStateAction} from "react";
+import {PingDeviceButton} from "@/components/PingDeviceButton.tsx";
 
 type DeviceFetcherProps = {
     devices: Device[];
@@ -11,7 +12,7 @@ type DeviceFetcherProps = {
     fetchDevices: () => void;
 };
 
-export function DeviceFetcher({ devices, fetchDevices }: DeviceFetcherProps) {
+export function DeviceFetcher({ devices, setDevices, fetchDevices }: DeviceFetcherProps) {
     return (
         <>
             {devices.length === 0 ? (
@@ -31,14 +32,14 @@ export function DeviceFetcher({ devices, fetchDevices }: DeviceFetcherProps) {
                                 <p>
                                     Status:{" "}
                                     <Badge variant={device.status === "ONLINE" ? "online" : "offline"}>
-                                        {device.status}
+                                        {device.status ?? "OFFLINE"}
                                     </Badge>
                                 </p>
                                 <p className="mt-2 text-sm text-muted-foreground">
                                     Last checked:{" "}
                                     {device.previousCheck
                                         ? new Date(device.previousCheck).toLocaleString()
-                                        : "Never"}
+                                        : "Never, so do it."}
                                 </p>
                             </CardContent>
                             <CardFooter>
@@ -50,6 +51,10 @@ export function DeviceFetcher({ devices, fetchDevices }: DeviceFetcherProps) {
                                 <EditDeviceDialog
                                     device={{ id: device.id, name: device.name, ipAddress: device.ipAddress }}
                                     onUpdated={() => fetchDevices()}
+                                />
+                                <PingDeviceButton
+                                    deviceId={device.id}
+                                    setDevices={setDevices}
                                 />
                             </CardFooter>
                         </Card>
