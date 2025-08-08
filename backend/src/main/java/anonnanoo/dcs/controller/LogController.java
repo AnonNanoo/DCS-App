@@ -12,6 +12,7 @@ import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
 
+@CrossOrigin(origins = "http://localhost:3000")
 @RestController
 @RequestMapping("/api/status_logs")
 public class LogController {
@@ -28,13 +29,6 @@ public class LogController {
         return statusLogRepository.findAll();
     }
 
-    // Retrieve a specific log by ID --> /api/status_logs/{id}
-    // Note: This is practially useless, it's just for demonstration
-    @GetMapping("/{id}")
-    public ResponseEntity<StatusLog> getLogById(@PathVariable UUID id) {
-        Optional<StatusLog> log = statusLogRepository.findById(id);
-        return log.map(ResponseEntity::ok).orElseGet(() -> ResponseEntity.notFound().build());
-    }
 
     // Retrieve logs by device ID --> /api/status_logs/device/{deviceId}
     @GetMapping("/{deviceId}")

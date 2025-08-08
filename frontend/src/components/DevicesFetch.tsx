@@ -5,6 +5,7 @@ import { EditDeviceDialog } from "@/components/EditDeviceDialog";
 import { type Device } from "@/types/device";
 import type {Dispatch, SetStateAction} from "react";
 import {PingDeviceButton} from "@/components/PingDeviceButton.tsx";
+import {DeviceLogs} from "@/components/DeviceLogs.tsx";
 
 type DeviceFetcherProps = {
     devices: Device[];
@@ -56,6 +57,7 @@ export function DeviceFetcher({ devices, setDevices, fetchDevices }: DeviceFetch
                                     deviceId={device.id}
                                     setDevices={setDevices}
                                 />
+                                <DeviceLogs deviceId={device.id} />
                             </CardFooter>
                         </Card>
                     ))}

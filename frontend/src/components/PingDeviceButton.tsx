@@ -30,12 +30,30 @@ export function PingDeviceButton({ deviceId, setDevices }: PingDeviceButtonProps
                         : device
                 )
             );
+
+            // for logging purposes
+            const logRes = await fetch(`http://localhost:8080/api/status_logs`, {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify({
+                    deviceId: deviceId,
+                    status: data.status,
+                    message: "Manual ping pressed",
+                }),
+            });
+
+            if (!logRes.ok) {
+                console.warn("Failed to create status log");
+            }
         } catch (err) {
             console.error(err);
         } finally {
             setLoading(false);
         }
     }
+
 
     return (
         <Button onClick={handlePing} disabled={loading}>
