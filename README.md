@@ -2,7 +2,7 @@
 
 
 ---
-
+# This project is ongoing! Due to my upcoming busier schedule and school responsibilities, progress may be slower than it once was.
 
 # Device Connection Surveillance App
 
