@@ -27,18 +27,18 @@ Ein Fullstack-Projekt zur Überwachung von Netzwerkgeräten, prüft automatisch 
 
 ```
 
-GET     /api/devices           → Liste aller Geräte  
-POST    /api/devices           → Neues Gerät hinzufügen  
-GET     /api/devices/{id}      → Gerätedetails  
-PUT     /api/devices/{id}      → Gerät editieren  
-DELETE  /api/devices/{id}      → Gerät löschen
+GET     /api/devices                → Liste aller Geräte  
+POST    /api/devices                → Neues Gerät hinzufügen  
+GET     /api/devices/{id}           → Gerätedetails  
+PUT     /api/devices/{id}           → Gerät editieren  
+DELETE  /api/devices/{id}           → Gerät löschen
 
-GET     /api/devices/scan/{id} → Gerät via nmap scannen
+GET     /api/devices/scan/{id}      → Gerät via nmap scannen
 
-GET     /api/status_log           → Liste aller Logs  
-POST    /api/status_log           → Neuen Log-Entry hinzufügen  
-GET     /api/status_log/{id}      → Details zu einem Log-Entry  
-DELETE  /api/status_log/{id}      → Log-Entry löschen
+GET     /api/status_logs            → Liste aller Logs
+GET     /api/status_logs/{deviceId} → Lister aller Logs von einem Gerät
+POST    /api/status_logs            → Neuen Log-Entry hinzufügen  
+DELETE  /api/status_log/{id}        → Log-Entry löschen
 
 
             
