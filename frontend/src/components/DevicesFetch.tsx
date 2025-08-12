@@ -14,8 +14,6 @@ type DeviceFetcherProps = {
 };
 
 export function DeviceFetcher({ devices, setDevices, fetchDevices }: DeviceFetcherProps) {
-
-
     return (
         <>
             {devices.length === 0 ? (
@@ -24,7 +22,7 @@ export function DeviceFetcher({ devices, setDevices, fetchDevices }: DeviceFetch
                     <p className="text-center mt-4 text-muted-foreground">Your Devices will show here.</p>
                 </>
             ) : (
-                <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
+                <div className="flex flex-row flex-wrap gap-x-4 gap-y-4">
                     {devices.map((device) => (
                         <Card key={device.id}>
                             <CardHeader>

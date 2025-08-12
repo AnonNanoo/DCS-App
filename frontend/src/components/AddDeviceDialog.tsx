@@ -37,7 +37,7 @@ export function AddDeviceDialog({ fetchDevices }: AddDeviceDialogProps) {
                 body: JSON.stringify({ name, ipAddress }),
             });
             if (!res.ok) {
-                throw new Error("Failed to create device");
+                throw new Error("Device with this IP already exists or another error occurred.");
             }
             const createdDevice = await res.json();
 
