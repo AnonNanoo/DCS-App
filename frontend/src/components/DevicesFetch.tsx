@@ -6,6 +6,7 @@ import type {Dispatch, SetStateAction} from "react";
 import {PingDeviceButton} from "@/components/PingDeviceButton.tsx";
 import {DeviceLogs} from "@/components/DeviceLogs.tsx";
 import {Badge} from "@/components/ui/badge";
+import {AddDeviceDialog} from "@/components/AddDeviceDialog.tsx";
 
 type DeviceFetcherProps = {
     devices: Device[];
@@ -18,6 +19,9 @@ export function DeviceFetcher({ devices, setDevices, fetchDevices }: DeviceFetch
         <>
             {devices.length === 0 ? (
                 <>
+                    <div className="flex justify-center mb-8">
+                        <AddDeviceDialog fetchDevices={fetchDevices} />
+                    </div>
                     <h1 className="text-4xl font-bold text-center">Welcome to DCS</h1>
                     <p className="text-center mt-4 text-muted-foreground">Your Devices will show here.</p>
                 </>
