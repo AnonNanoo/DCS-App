@@ -40,7 +40,6 @@ GET     /api/status_logs/{deviceId} → Lister aller Logs von einem Gerät
 POST    /api/status_logs            → Neuen Log-Entry hinzufügen  
 DELETE  /api/status_log/{id}        → Log-Entry löschen
 
-
             
 ````
 
