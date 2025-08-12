@@ -5,10 +5,29 @@ import type { Device } from "@/types/device";
 
 export default function Main() {
     const [devices, setDevices] = useState<Device[]>([]);
-    const fetchDevices = () => {
-        fetch("http://localhost:8080/api/devices")
-            .then((res) => res.json())
-            .then((data) => setDevices(data));
+    const fetchDevices = async () => {
+        const res = await fetch("http://localhost:8080/api/devices");
+        const devices: Device[] = await res.json();
+
+        // Fetch the most recent log entry for each and every device
+        const updatedDevices = await Promise.all(
+            devices.map(async (device) => {
+                try {
+                    const logRes = await fetch(`http://localhost:8080/api/status_logs/latest/${device.id}`);
+                    if (!logRes.ok) return device;
+                    const log = await logRes.json();
+                    return {
+                        ...device,
+                        previousCheck: log.timestamp,
+                        status: log.status,
+                        latency: log.latency
+                    };
+                } catch {
+                    return device;
+                }
+            })
+        );
+        setDevices(updatedDevices);
     };
 
     useEffect(() => {

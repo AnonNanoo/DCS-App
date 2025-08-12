@@ -18,22 +18,16 @@ public class Device {
     @Column(nullable = false)
     private String name;
 
-    @Enumerated(EnumType.STRING)
-    @Column(nullable = false)
-    private DeviceStatus status = DeviceStatus.OFFLINE;
-
     @Column
     private LocalDateTime previousCheck;
 
 
     public Device() {}
 
-    public Device(UUID id, String ipAddress, String name, DeviceStatus status, LocalDateTime previousCheck) {
+    public Device(UUID id, String ipAddress, String name) {
         this.id = id;
         this.ipAddress = ipAddress;
         this.name = name;
-        this.status = status;
-        this.previousCheck = previousCheck;
     }
 
     public UUID getId() {
@@ -60,21 +54,8 @@ public class Device {
         this.name = name;
     }
 
-    public DeviceStatus getStatus() {
-        return status;
-    }
 
-    public void setStatus(DeviceStatus status) {
-        this.status = status;
-    }
 
-    public LocalDateTime getPreviousCheck() {
-        return previousCheck;
-    }
-
-    public void setPreviousCheck(LocalDateTime previousCheck) {
-        this.previousCheck = previousCheck;
-    }
 
     @Override
     public String toString() {
@@ -82,8 +63,6 @@ public class Device {
                 "id=" + id +
                 ", ipAddress='" + ipAddress + '\'' +
                 ", name='" + name + '\'' +
-                ", status=" + status +
-                ", previouslyChecked=" + previousCheck +
                 '}';
     }
 }

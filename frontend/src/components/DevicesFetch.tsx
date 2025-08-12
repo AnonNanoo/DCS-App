@@ -1,9 +1,11 @@
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
-import { Badge } from "@/components/ui/badge";
 import { DeleteDeviceDialog } from "@/components/DeleteDeviceDialog";
 import { EditDeviceDialog } from "@/components/EditDeviceDialog";
 import { type Device } from "@/types/device";
 import type {Dispatch, SetStateAction} from "react";
+import {PingDeviceButton} from "@/components/PingDeviceButton.tsx";
+import {DeviceLogs} from "@/components/DeviceLogs.tsx";
+import {Badge} from "@/components/ui/badge";
 
 type DeviceFetcherProps = {
     devices: Device[];
@@ -11,7 +13,7 @@ type DeviceFetcherProps = {
     fetchDevices: () => void;
 };
 
-export function DeviceFetcher({ devices, fetchDevices }: DeviceFetcherProps) {
+export function DeviceFetcher({ devices, setDevices, fetchDevices }: DeviceFetcherProps) {
     return (
         <>
             {devices.length === 0 ? (
@@ -20,7 +22,7 @@ export function DeviceFetcher({ devices, fetchDevices }: DeviceFetcherProps) {
                     <p className="text-center mt-4 text-muted-foreground">Your Devices will show here.</p>
                 </>
             ) : (
-                <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
+                <div className="flex flex-row flex-wrap gap-x-4 gap-y-4">
                     {devices.map((device) => (
                         <Card key={device.id}>
                             <CardHeader>
@@ -28,18 +30,18 @@ export function DeviceFetcher({ devices, fetchDevices }: DeviceFetcherProps) {
                                 <CardDescription>{device.ipAddress}</CardDescription>
                             </CardHeader>
                             <CardContent>
-                                <p>
+                                <div className="space-y-3 mt-4">
                                     Status:{" "}
                                     <Badge variant={device.status === "ONLINE" ? "online" : "offline"}>
-                                        {device.status}
+                                        {device.status ?? "OFFLINE"}
                                     </Badge>
-                                </p>
-                                <p className="mt-2 text-sm text-muted-foreground">
-                                    Last checked:{" "}
-                                    {device.previousCheck
-                                        ? new Date(device.previousCheck).toLocaleString()
-                                        : "Never"}
-                                </p>
+                                    <p className="mt-2 text-sm text-muted-foreground">
+                                        Last checked:{" "}
+                                        {device.previousCheck
+                                            ? new Date(device.previousCheck).toLocaleString()
+                                            : "Never, so do it."}
+                                    </p>
+                                </div>
                             </CardContent>
                             <CardFooter>
                                 <DeleteDeviceDialog
@@ -51,6 +53,11 @@ export function DeviceFetcher({ devices, fetchDevices }: DeviceFetcherProps) {
                                     device={{ id: device.id, name: device.name, ipAddress: device.ipAddress }}
                                     onUpdated={() => fetchDevices()}
                                 />
+                                <PingDeviceButton
+                                    deviceId={device.id}
+                                    setDevices={setDevices}
+                                />
+                                <DeviceLogs deviceId={device.id} />
                             </CardFooter>
                         </Card>
                     ))}
