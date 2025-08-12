@@ -18,4 +18,6 @@ public interface StatusLogRepository extends JpaRepository<StatusLog, Long> {
     void deleteByDeviceId(UUID id);
 
     List<StatusLog> findByDeviceId(UUID deviceId);
+
+    StatusLog findFirstByDeviceIdOrderByTimestampDesc(UUID deviceId);
 }

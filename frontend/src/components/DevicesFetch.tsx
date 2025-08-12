@@ -1,11 +1,11 @@
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
-import { Badge } from "@/components/ui/badge";
 import { DeleteDeviceDialog } from "@/components/DeleteDeviceDialog";
 import { EditDeviceDialog } from "@/components/EditDeviceDialog";
 import { type Device } from "@/types/device";
 import type {Dispatch, SetStateAction} from "react";
 import {PingDeviceButton} from "@/components/PingDeviceButton.tsx";
 import {DeviceLogs} from "@/components/DeviceLogs.tsx";
+import {Badge} from "@/components/ui/badge";
 
 type DeviceFetcherProps = {
     devices: Device[];
@@ -14,6 +14,8 @@ type DeviceFetcherProps = {
 };
 
 export function DeviceFetcher({ devices, setDevices, fetchDevices }: DeviceFetcherProps) {
+
+
     return (
         <>
             {devices.length === 0 ? (
@@ -30,18 +32,18 @@ export function DeviceFetcher({ devices, setDevices, fetchDevices }: DeviceFetch
                                 <CardDescription>{device.ipAddress}</CardDescription>
                             </CardHeader>
                             <CardContent>
-                                <p>
+                                <div className="space-y-3 mt-4">
                                     Status:{" "}
                                     <Badge variant={device.status === "ONLINE" ? "online" : "offline"}>
                                         {device.status ?? "OFFLINE"}
                                     </Badge>
-                                </p>
-                                <p className="mt-2 text-sm text-muted-foreground">
-                                    Last checked:{" "}
-                                    {device.previousCheck
-                                        ? new Date(device.previousCheck).toLocaleString()
-                                        : "Never, so do it."}
-                                </p>
+                                    <p className="mt-2 text-sm text-muted-foreground">
+                                        Last checked:{" "}
+                                        {device.previousCheck
+                                            ? new Date(device.previousCheck).toLocaleString()
+                                            : "Never, so do it."}
+                                    </p>
+                                </div>
                             </CardContent>
                             <CardFooter>
                                 <DeleteDeviceDialog

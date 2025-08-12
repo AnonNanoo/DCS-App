@@ -40,6 +40,18 @@ public class LogController {
         return ResponseEntity.ok(logs);
     }
 
+
+    // Retrieve latest log by device ID --> /api/status_logs/latest/{deviceId}
+    @GetMapping("/latest/{deviceId}")
+    public ResponseEntity<StatusLog> getLatestLogByDeviceId(@PathVariable UUID deviceId) {
+        StatusLog latestLog = statusLogRepository.findFirstByDeviceIdOrderByTimestampDesc(deviceId);
+        if (latestLog == null) {
+            return ResponseEntity.notFound().build();
+        }
+        return ResponseEntity.ok(latestLog);
+    }
+
+
     // Create a new status log --> /api/status_logs
     @PostMapping
     public ResponseEntity<?> createLog(@RequestBody StatusLog log) {

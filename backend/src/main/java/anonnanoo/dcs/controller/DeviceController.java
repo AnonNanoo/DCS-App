@@ -39,10 +39,6 @@ public class DeviceController {
         return device;
     }
 
-
-
-
-
     // Get all Devices --> /api/devices
     @GetMapping
     public List<Device> getAll() {
@@ -66,6 +62,7 @@ public class DeviceController {
                 .map(ResponseEntity::ok)
                 .orElse(ResponseEntity.notFound().build());
     }
+
 
     // Update a Device by ID  --> /api/devices/{id}
     @PutMapping("/{id}")

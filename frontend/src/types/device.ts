@@ -3,5 +3,5 @@ export interface Device {
     name: string;
     ipAddress: string;
     status?: "ONLINE" | "OFFLINE";
-    previousCheck: string | null;
+    previousCheck: string;
 }

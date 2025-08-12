@@ -7,16 +7,9 @@ import {
     DialogHeader,
     DialogTitle,
     DialogDescription,
-    DialogTrigger,
-    DialogClose,
+    DialogTrigger
 } from "@/components/ui/dialog";
-
-type Log = {
-    id: string;
-    status: string;
-    timestamp: string;
-    message: string;
-};
+import type { Log } from "@/types/log";
 
 interface DeviceLogsProps {
     deviceId: string;
@@ -27,7 +20,6 @@ export function DeviceLogs({ deviceId }: DeviceLogsProps) {
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState<string | null>(null);
 
-    // Fetch logs when dialog opens
     const [open, setOpen] = useState(false);
     useEffect(() => {
         if (open) {
@@ -38,7 +30,10 @@ export function DeviceLogs({ deviceId }: DeviceLogsProps) {
                     return res.json();
                 })
                 .then((data: Log[]) => {
-                    setLogs(data);
+                    const sortedLogs = data.sort(
+                        (a, b) => new Date(b.timestamp).getTime() - new Date(a.timestamp).getTime()
+                    );
+                    setLogs(sortedLogs);
                     setError(null);
                 })
                 .catch((err) => setError(err.message))
@@ -77,9 +72,6 @@ export function DeviceLogs({ deviceId }: DeviceLogsProps) {
                     ))}
                 </div>
 
-                <DialogClose asChild>
-                    <Button className="mt-6 w-full">Close</Button>
-                </DialogClose>
             </DialogContent>
         </Dialog>
     );
