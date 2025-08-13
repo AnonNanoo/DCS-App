@@ -42,6 +42,7 @@ export default function Main() {
                     fetchDevices={fetchDevices}
                 />
             </div>
+
         </main>
     );
 }

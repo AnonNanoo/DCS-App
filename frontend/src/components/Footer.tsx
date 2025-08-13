@@ -1,4 +1,3 @@
-import github_light from "/github-logo-light.svg";
 import github_dark from "/github-logo-dark.svg";
 
 const githubUsername = "AnonNanoo";
@@ -32,13 +31,8 @@ export default function Footer() {
                         className="hover:cursor-pointer transition-transform hover:scale-110"
                     >
                         <img
-                            className="hidden dark:block w-8 h-8"
+                            className="block w-8 h-8"
                             src={github_dark}
-                            alt="GitHub Repository"
-                        />
-                        <img
-                            className="dark:hidden w-8 h-8"
-                            src={github_light}
                             alt="GitHub Repository"
                         />
                     </button>
