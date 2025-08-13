@@ -66,6 +66,7 @@ export function DeviceLogs({ deviceId }: DeviceLogsProps) {
                                     {log.status}
                                 </Badge>
                                 <small>{new Date(log.timestamp).toLocaleString()}</small>
+                                <p>{log.ipAddress}</p>
                             </div>
                             <p>{log.message}</p>
                         </div>

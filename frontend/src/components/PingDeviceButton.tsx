@@ -39,8 +39,9 @@ export function PingDeviceButton({ deviceId, setDevices }: PingDeviceButtonProps
                 },
                 body: JSON.stringify({
                     deviceId: deviceId,
+                    ipAddress: data.ipAddress,
                     status: data.status,
-                    message: "Manual ping pressed",
+                    message: "Manual ping pressed"
                 }),
             });
 

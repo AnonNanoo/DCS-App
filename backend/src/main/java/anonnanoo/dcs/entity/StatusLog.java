@@ -12,6 +12,9 @@ public class StatusLog {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private UUID id;
 
+    @Column (nullable = false)
+    private String ipAddress;
+
     @Enumerated(EnumType.STRING)
     @Column(nullable = false)
     private DeviceStatus status;
@@ -28,8 +31,9 @@ public class StatusLog {
 
     public StatusLog() {}
 
-    public StatusLog(UUID id, DeviceStatus status, LocalDateTime timestamp, String message, UUID deviceId) {
+    public StatusLog(UUID id, String ipAddress, DeviceStatus status, LocalDateTime timestamp, String message, UUID deviceId) {
         this.id = id;
+        this.ipAddress = ipAddress;
         this.status = status;
         this.timestamp = timestamp;
         this.message = (message.isBlank() || message == null) ? "-" : message;
@@ -83,10 +87,19 @@ public class StatusLog {
         this.deviceId = deviceId;
     }
 
+    public String getIpAddress() {
+        return ipAddress;
+    }
+
+    public void setIpAddress(String ipAddress) {
+        this.ipAddress = ipAddress;
+    }
+
     @Override
     public String toString() {
         return "StatusLog{" +
                 "id=" + id +
+                ", ipAddress='" + ipAddress + '\'' +
                 ", status=" + status +
                 ", timestamp=" + timestamp +
                 ", message='" + message + '\'' +
