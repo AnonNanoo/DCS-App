@@ -1,11 +1,16 @@
-# DCS-App
-
-
----
-# This project is ongoing! Due to my upcoming busier schedule and school responsibilities, progress may be slower than it once was.
-
 # Device Connection Surveillance App
 
+> **Status:** 🚧 Ongoing Project  
+> Aufgrund meines bald volleren Terminkalenders und schulischer Verpflichtungen könnte der Fortschritt langsamer sein als bisher.
+
+---
+
+## Release v1.0.0
+⚠️ **Hinweis:** Diese Version enthält *noch kein Docker-Setup*.
+
+---
+
+### 📝 Kurzbeschreibung
 Ein Fullstack-Projekt zur Überwachung von Netzwerkgeräten, prüft automatisch oder manuell, ob Geräte erreichbar sind (online/offline) und visualisiert den Status über eine schön gestaltete Website.
 
 ## 🔧 Tech-Stack
