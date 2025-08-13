@@ -22,13 +22,18 @@ public class StatusLog {
     @Column(nullable = false)
     private String message = "-";
 
+    @Column(name = "device_id", nullable = false)
+    private UUID deviceId;
+
+
     public StatusLog() {}
 
-    public StatusLog(UUID id, DeviceStatus status, LocalDateTime timestamp, String message) {
+    public StatusLog(UUID id, DeviceStatus status, LocalDateTime timestamp, String message, UUID deviceId) {
         this.id = id;
         this.status = status;
         this.timestamp = timestamp;
         this.message = (message.isBlank() || message == null) ? "-" : message;
+        this.deviceId = deviceId;
     }
 
     @PrePersist
@@ -70,6 +75,14 @@ public class StatusLog {
         this.message = (message.isBlank() || message == null) ? "-" : message;
     }
 
+    public UUID getDeviceId() {
+        return deviceId;
+    }
+
+    public void setDeviceId(UUID deviceId) {
+        this.deviceId = deviceId;
+    }
+
     @Override
     public String toString() {
         return "StatusLog{" +
@@ -77,6 +90,8 @@ public class StatusLog {
                 ", status=" + status +
                 ", timestamp=" + timestamp +
                 ", message='" + message + '\'' +
+                ", deviceId=" + deviceId +
                 '}';
     }
+
 }

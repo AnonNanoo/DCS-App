@@ -2,7 +2,7 @@ import {ModeToggle} from "@/components/theme/mode-toggle";
 import logo from "/dcs_logo.svg";
 
 export default function Header() {
-  return (
+    return (
       <header className="w-screen bg-secondary text-secondary-foreground m-0 p-0">
           <div className="w-full max-w-none flex items-center justify-between px-4 py-3">
               <div className="flex items-center gap-3">
