@@ -1,6 +1,8 @@
 import { useEffect, useState } from "react";
 import { DeviceFetcher } from "@/components/DevicesFetch.tsx";
 import type { Device } from "@/types/device";
+import {AddDeviceDialog} from "@/components/AddDeviceDialog.tsx";
+import { DevicesCounter } from "@/components/DevicesCounter";
 
 export default function Main() {
     const [devices, setDevices] = useState<Device[]>([]);
@@ -36,6 +38,10 @@ export default function Main() {
     return (
         <main className="flex-1">
             <div className="container mx-auto px-4 py-8">
+                <div className="flex justify-center mb-8">
+                    <AddDeviceDialog fetchDevices={fetchDevices} />
+                </div>
+                <DevicesCounter devices={devices} />
                 <DeviceFetcher
                     devices={devices}
                     setDevices={setDevices}
