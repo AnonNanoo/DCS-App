@@ -3,6 +3,7 @@ import { DeviceFetcher } from "@/components/DevicesFetch.tsx";
 import type { Device } from "@/types/device";
 import {AddDeviceDialog} from "@/components/AddDeviceDialog.tsx";
 import { DevicesCounter } from "@/components/DevicesCounter";
+import AnimatedContent from "@/components/anim/Animations/AnimatedContent/AnimatedContent.tsx";
 
 export default function Main() {
     const [devices, setDevices] = useState<Device[]>([]);
@@ -37,11 +38,39 @@ export default function Main() {
 
     return (
         <main className="flex-1">
+
             <div className="container mx-auto px-4 py-8">
-                <div className="flex justify-center mb-8">
-                    <AddDeviceDialog fetchDevices={fetchDevices} />
-                </div>
-                <DevicesCounter devices={devices} />
+                <AnimatedContent
+                    distance={150}
+                    direction="vertical"
+                    reverse={true}
+                    duration={0.5}
+                    ease="horizontal"
+                    initialOpacity={0.0}
+                    animateOpacity
+                    scale={1.0}
+                    threshold={0.2}
+                    delay={1.2}
+                    z-index={10}
+                >
+                    <div className="flex justify-center mb-8">
+                        <AddDeviceDialog fetchDevices={fetchDevices} />
+                    </div>
+                </AnimatedContent>
+                <AnimatedContent
+                    distance={150}
+                    direction="horizontal"
+                    reverse={true}
+                    duration={0.5}
+                    ease="horizontal"
+                    initialOpacity={0.0}
+                    animateOpacity
+                    scale={1.1}
+                    threshold={0.2}
+                    delay={1.70}
+                >
+                    <DevicesCounter devices={devices} />
+                </AnimatedContent>
                 <DeviceFetcher
                     devices={devices}
                     setDevices={setDevices}
