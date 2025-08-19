@@ -22,7 +22,7 @@ interface Spark {
   startTime: number;
 }
 
-const ClickSpark: React.FC<ClickSparkProps> = ({
+const   ClickSpark: React.FC<ClickSparkProps> = ({
   sparkColor = "#fff",
   sparkSize = 10,
   sparkRadius = 15,

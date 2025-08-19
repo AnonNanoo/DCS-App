@@ -40,13 +40,13 @@ export function DeviceFetcher({ devices, setDevices, fetchDevices }: DeviceFetch
                                             Last checked:{" "}
                                             {device.previousCheck
                                                 ? new Date(device.previousCheck).toLocaleString()
-                                                : "Never, so do it."}
+                                                : "Unknown"}
                                         </p>
                                         <p>
                                             Latency:{" "}
                                             {device.latency !== undefined
                                                 ? `${device.latency} ms`
-                                                : "Unknown, so do it."}
+                                                : "Unknown"}
                                         </p>
                                     </div>
                                 </CardContent>
