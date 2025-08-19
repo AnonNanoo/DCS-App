@@ -24,10 +24,10 @@ export function DeviceFetcher({ devices, setDevices, fetchDevices }: DeviceFetch
             ) : (
                 <div className="flex flex-row flex-wrap gap-x-4 gap-y-4">
                     {devices.map((device) => (
-                        <Card key={device.id}>
+                        <Card key={device.id} className="w-300 min-h-40">
                             <CardHeader>
-                                <CardTitle>{device.name}</CardTitle>
-                                <CardDescription>{device.ipAddress}</CardDescription>
+                                    <CardTitle>{device.name}</CardTitle>
+                                    <CardDescription>{device.ipAddress}</CardDescription>
                             </CardHeader>
                             <CardContent>
                                 <div className="space-y-3 mt-4">
@@ -43,7 +43,8 @@ export function DeviceFetcher({ devices, setDevices, fetchDevices }: DeviceFetch
                                     </p>
                                 </div>
                             </CardContent>
-                            <CardFooter>
+                            <CardFooter className="flex justify-between items-center">
+                                <div className="flex gap-2">
                                 <DeleteDeviceDialog
                                     id={device.id}
                                     name={device.name}
@@ -58,6 +59,7 @@ export function DeviceFetcher({ devices, setDevices, fetchDevices }: DeviceFetch
                                     setDevices={setDevices}
                                 />
                                 <DeviceLogs deviceId={device.id} />
+                                </div>
                             </CardFooter>
                         </Card>
                     ))}

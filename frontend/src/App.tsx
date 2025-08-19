@@ -10,7 +10,7 @@ export default function App() {
   return (
     <ThemeProvider>
         <ClickSpark
-            sparkColor='#FBAB05'
+            sparkColor='#FFF'
             sparkSize={10}
             sparkRadius={15}
             sparkCount={8}
