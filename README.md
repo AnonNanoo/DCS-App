@@ -1,5 +1,6 @@
 # Device Connection Surveillance App
 
+> [!NOTE]
 > **Status:** 🚧 Ongoing Project  
 > Aufgrund meines bald volleren Terminkalenders und schulischer Verpflichtungen könnte der Fortschritt langsamer sein als bisher.
 
