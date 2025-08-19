@@ -54,6 +54,7 @@ public class Seeder implements CommandLineRunner {
                         DeviceStatus.OFFLINE,
                         LocalDateTime.now().minusMinutes(10),
                         "System is operational",
+                        2,
                         Device1ID
                 );
 
@@ -63,6 +64,7 @@ public class Seeder implements CommandLineRunner {
                         DeviceStatus.ONLINE,
                         LocalDateTime.now().minusMinutes(3),
                         "System is operational",
+                        3,
                         Device2ID
                 );
 

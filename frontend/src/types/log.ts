@@ -4,4 +4,5 @@ export interface Log {
     status: string;
     timestamp: string;
     message: string;
+    latency?: number;
 }

@@ -42,6 +42,12 @@ export function DeviceFetcher({ devices, setDevices, fetchDevices }: DeviceFetch
                                                 ? new Date(device.previousCheck).toLocaleString()
                                                 : "Never, so do it."}
                                         </p>
+                                        <p>
+                                            Latency:{" "}
+                                            {device.latency !== undefined
+                                                ? `${device.latency} ms`
+                                                : "Unknown, so do it."}
+                                        </p>
                                     </div>
                                 </CardContent>
                             </div>

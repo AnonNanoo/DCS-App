@@ -68,7 +68,10 @@ export function DeviceLogs({ deviceId }: DeviceLogsProps) {
                                 <small>{new Date(log.timestamp).toLocaleString()}</small>
                                 <p>{log.ipAddress}</p>
                             </div>
-                            <p>{log.message}</p>
+                            <div className="flex justify-between items-center">
+                                <p>{log.message}</p>
+                                <p>{log.latency} ms</p>
+                            </div>
                         </div>
                     ))}
                 </div>
