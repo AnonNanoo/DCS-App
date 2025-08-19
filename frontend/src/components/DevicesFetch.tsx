@@ -48,6 +48,9 @@ export function DeviceFetcher({ devices, setDevices, fetchDevices }: DeviceFetch
                                                 ? `${device.latency} ms`
                                                 : "Unknown"}
                                         </p>
+                                        <p>
+                                            Mac Address: {device.macAddress ?? "Unknown"}
+                                        </p>
                                     </div>
                                 </CardContent>
                             </div>

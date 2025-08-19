@@ -1,8 +1,9 @@
 export interface Log {
     id: string;
     ipAddress: string;
-    status: string;
+    macAddress?: string;
     timestamp: string;
     message: string;
     latency?: number;
+    status?: "ONLINE" | "OFFLINE";
 }

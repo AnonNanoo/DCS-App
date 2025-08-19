@@ -24,6 +24,8 @@ export function PingDeviceButton({ deviceId, setDevices }: PingDeviceButtonProps
                         ? {
                             ...device,
                             status: data.status,
+                            ipAddress: data.ipAddress,
+                            macAddress: data.macAddress,
                             latency: data.latency,
                             previousCheck: new Date().toISOString()
                         }
