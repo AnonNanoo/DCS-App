@@ -54,3 +54,5 @@ DELETE  /api/status_log/{id}        → Log-Entry löschen
 
 Made with ☕ + 💻 by AnonNanoo
 
+Copyright © 2025 AnonNanoo. All Rights Reserved.
+
