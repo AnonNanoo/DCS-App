@@ -42,7 +42,7 @@ export default function Header() {
                   threshold={0.2}
                   delay={0.75}
               >
-                <div className="flex items-center gap-4">
+                <div className="flex items-center gap-4 pl-5">
                     <ModeToggle/>
                 </div>
               </AnimatedContent>

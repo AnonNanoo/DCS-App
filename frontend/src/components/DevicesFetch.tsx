@@ -42,13 +42,13 @@ export function DeviceFetcher({ devices, setDevices, fetchDevices }: DeviceFetch
                                                 ? new Date(device.previousCheck).toLocaleString()
                                                 : "Unknown"}
                                         </p>
-                                        <p>
+                                        <p className="mt-2 text-sm text-muted-foreground">
                                             Latency:{" "}
                                             {device.latency !== undefined
                                                 ? `${device.latency} ms`
                                                 : "Unknown"}
                                         </p>
-                                        <p>
+                                        <p className="mt-2 text-sm text-muted-foreground">
                                             Mac Address: {device.macAddress ?? "Unknown"}
                                         </p>
                                     </div>
