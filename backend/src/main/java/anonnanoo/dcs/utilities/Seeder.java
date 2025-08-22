@@ -42,20 +42,34 @@ public class Seeder implements CommandLineRunner {
 
             deviceRepository.save(device1);
             deviceRepository.save(device2);
-            UUID Device1ID = device1.getId(); // For the Log
+            UUID Device1ID = device1.getId();
+            UUID Device2ID = device2.getId(); // For the Log
 
             System.out.println("Sample Devices have been added to the database.");
 
             if (statusLogRepository.count() == 0) {
-                StatusLog systemStatusLog = new StatusLog(
+                StatusLog Device1Log = new StatusLog(
                         null,
-                        DeviceStatus.ONLINE,
-                        LocalDateTime.now().minusMinutes(3),
+                        "10.10.10.1",
+                        DeviceStatus.OFFLINE,
+                        LocalDateTime.now().minusMinutes(10),
                         "System is operational",
+                        2,
                         Device1ID
                 );
 
-                statusLogRepository.save(systemStatusLog);
+                StatusLog Device2Log = new StatusLog(
+                        null,
+                        "172.67.9.1",
+                        DeviceStatus.ONLINE,
+                        LocalDateTime.now().minusMinutes(3),
+                        "System is operational",
+                        3,
+                        Device2ID
+                );
+
+                statusLogRepository.save(Device1Log);
+                statusLogRepository.save(Device2Log);
                 System.out.println("Status Log(s) have been added to the database.");
             }
         }

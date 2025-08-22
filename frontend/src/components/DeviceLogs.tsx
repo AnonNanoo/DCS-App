@@ -58,16 +58,20 @@ export function DeviceLogs({ deviceId }: DeviceLogsProps) {
                 {error && <p className="text-red-500">Error: {error}</p>}
                 {!loading && !error && logs.length === 0 && <p>No existing logs.</p>}
 
-                <div className="space-y-3 mt-4">
+                <div className="space-y-3 mt-4 ">
                     {logs.map((log) => (
-                        <div key={log.id} className="p-2 border rounded hover:bg-gray-100">
+                        <div key={log.id} className="p-2 border rounded">
                             <div className="flex justify-between items-center">
                                 <Badge variant={log.status === "ONLINE" ? "online" : "offline"}>
                                     {log.status}
                                 </Badge>
                                 <small>{new Date(log.timestamp).toLocaleString()}</small>
+                                <p>{log.ipAddress}</p>
                             </div>
-                            <p>{log.message}</p>
+                            <div className="flex justify-between items-center">
+                                <p>{log.message}</p>
+                                <p>{log.latency} ms</p>
+                            </div>
                         </div>
                     ))}
                 </div>

@@ -6,7 +6,6 @@ import type {Dispatch, SetStateAction} from "react";
 import {PingDeviceButton} from "@/components/PingDeviceButton.tsx";
 import {DeviceLogs} from "@/components/DeviceLogs.tsx";
 import {Badge} from "@/components/ui/badge";
-import {AddDeviceDialog} from "@/components/AddDeviceDialog.tsx";
 
 type DeviceFetcherProps = {
     devices: Device[];
@@ -19,35 +18,43 @@ export function DeviceFetcher({ devices, setDevices, fetchDevices }: DeviceFetch
         <>
             {devices.length === 0 ? (
                 <>
-                    <div className="flex justify-center mb-8">
-                        <AddDeviceDialog fetchDevices={fetchDevices} />
-                    </div>
                     <h1 className="text-4xl font-bold text-center">Welcome to DCS</h1>
                     <p className="text-center mt-4 text-muted-foreground">Your Devices will show here.</p>
                 </>
             ) : (
                 <div className="flex flex-row flex-wrap gap-x-4 gap-y-4">
                     {devices.map((device) => (
-                        <Card key={device.id}>
-                            <CardHeader>
-                                <CardTitle>{device.name}</CardTitle>
-                                <CardDescription>{device.ipAddress}</CardDescription>
-                            </CardHeader>
-                            <CardContent>
-                                <div className="space-y-3 mt-4">
-                                    Status:{" "}
-                                    <Badge variant={device.status === "ONLINE" ? "online" : "offline"}>
-                                        {device.status ?? "OFFLINE"}
-                                    </Badge>
-                                    <p className="mt-2 text-sm text-muted-foreground">
-                                        Last checked:{" "}
-                                        {device.previousCheck
-                                            ? new Date(device.previousCheck).toLocaleString()
-                                            : "Never, so do it."}
-                                    </p>
-                                </div>
-                            </CardContent>
-                            <CardFooter>
+                        <Card key={device.id} className="w-96 min-h-40 flex flex-col justify-between">
+                            <div className="items-start w-full">
+                                <CardHeader className="items-start">
+                                    <CardTitle>{device.name}</CardTitle>
+                                    <CardDescription>{device.ipAddress}</CardDescription>
+                                </CardHeader>
+                                <CardContent className="items-start">
+                                    <div className="space-y-3 mt-4">
+                                        Status:{" "}
+                                        <Badge variant={device.status === "ONLINE" ? "online" : "offline"}>
+                                            {device.status ?? "OFFLINE"}
+                                        </Badge>
+                                        <p className="mt-2 text-sm text-muted-foreground">
+                                            Last checked:{" "}
+                                            {device.previousCheck
+                                                ? new Date(device.previousCheck).toLocaleString()
+                                                : "Unknown"}
+                                        </p>
+                                        <p className="mt-2 text-sm text-muted-foreground">
+                                            Latency:{" "}
+                                            {device.latency !== undefined
+                                                ? `${device.latency} ms`
+                                                : "Unknown"}
+                                        </p>
+                                        <p className="mt-2 text-sm text-muted-foreground">
+                                            Mac Address: {device.macAddress ?? "Unknown"}
+                                        </p>
+                                    </div>
+                                </CardContent>
+                            </div>
+                            <CardFooter className="flex gap-2 self-end mt-4">
                                 <DeleteDeviceDialog
                                     id={device.id}
                                     name={device.name}

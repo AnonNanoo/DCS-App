@@ -64,6 +64,9 @@ public class LogController {
         if (log.getMessage() == null || log.getMessage().isBlank()) {
             log.setMessage("-");
         }
+        if (log.getIpAddress() == null || log.getIpAddress().isBlank()) {
+            return ResponseEntity.badRequest().body("ipAddress is required");
+        }
         StatusLog saved = statusLogRepository.save(log);
         return ResponseEntity.ok(saved);
     }

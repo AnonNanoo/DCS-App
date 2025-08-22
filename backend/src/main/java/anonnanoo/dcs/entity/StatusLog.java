@@ -12,6 +12,9 @@ public class StatusLog {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private UUID id;
 
+    @Column (nullable = false)
+    private String ipAddress;
+
     @Enumerated(EnumType.STRING)
     @Column(nullable = false)
     private DeviceStatus status;
@@ -22,17 +25,22 @@ public class StatusLog {
     @Column(nullable = false)
     private String message = "-";
 
+    @Column (nullable = false)
+    private double latency;
+
     @Column(name = "device_id", nullable = false)
     private UUID deviceId;
 
 
     public StatusLog() {}
 
-    public StatusLog(UUID id, DeviceStatus status, LocalDateTime timestamp, String message, UUID deviceId) {
+    public StatusLog(UUID id, String ipAddress, DeviceStatus status, LocalDateTime timestamp, String message, double latency, UUID deviceId) {
         this.id = id;
+        this.ipAddress = ipAddress;
         this.status = status;
         this.timestamp = timestamp;
         this.message = (message.isBlank() || message == null) ? "-" : message;
+        this.latency = latency;
         this.deviceId = deviceId;
     }
 
@@ -83,15 +91,32 @@ public class StatusLog {
         this.deviceId = deviceId;
     }
 
+    public String getIpAddress() {
+        return ipAddress;
+    }
+
+    public void setIpAddress(String ipAddress) {
+        this.ipAddress = ipAddress;
+    }
+
+    public double getLatency() {
+        return latency;
+    }
+
+    public void setLatency(double latency) {
+        this.latency = latency;
+    }
+
     @Override
     public String toString() {
         return "StatusLog{" +
                 "id=" + id +
+                ", ipAddress='" + ipAddress + '\'' +
                 ", status=" + status +
                 ", timestamp=" + timestamp +
                 ", message='" + message + '\'' +
+                ", latency=" + latency +
                 ", deviceId=" + deviceId +
                 '}';
     }
-
 }
