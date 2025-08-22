@@ -6,8 +6,8 @@
 
 ---
 
-## Release v1.0.0
-⚠️ **Hinweis:** Diese Version enthält *noch kein Docker-Setup*.
+## Releases v1
+⚠️ **Hinweis:** Enthalten *noch kein Docker-Setup*.
 
 ---
 
