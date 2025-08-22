@@ -118,15 +118,17 @@ public class DeviceController {
                                 scanResult.setStatus(DeviceStatus.ONLINE);
 
                                 int start = line.indexOf('(');
-                                int end = line.indexOf('s');
+                                int end = line.indexOf("s latency)", start); // Look for "s)" after the opening parenthesis
                                 if (start != -1 && end != -1 && end > start) {
                                     String latencyStr = line.substring(start + 1, end).trim();
                                     try {
-                                        scanResult.setLatency(Double.parseDouble(latencyStr)); // Just the Latency part
+                                        double latencyInSeconds = Double.parseDouble(latencyStr);
+                                        scanResult.setLatency(latencyInSeconds * 1000); // converting to milliseconds
                                     } catch (NumberFormatException e) {
                                         scanResult.setLatency(0.0);
                                     }
                                 }
+
 
                             } else if (line.contains("MAC Address:")) {
                                 String[] parts = line.split("MAC Address: ");

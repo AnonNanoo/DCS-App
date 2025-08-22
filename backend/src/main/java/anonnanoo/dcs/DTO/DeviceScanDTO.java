@@ -6,7 +6,7 @@ public class DeviceScanDTO {
     private String ipAddress;
     private String macAddress;
     private String hostName;
-    private double latency;
+    private double latency; // in milliseconds
     private DeviceStatus status;
 
     public DeviceScanDTO() {}

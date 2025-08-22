@@ -152,6 +152,9 @@
   --sidebar-ring: #FBAB05;
 }
 
+*::selection{
+    @apply bg-primary-foreground text-primary;
+}
 
 @layer base {
   * {
