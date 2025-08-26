@@ -28,7 +28,7 @@ export function DeviceFetcher({ devices, setDevices, fetchDevices }: DeviceFetch
                     {devices.map((device) => (
                         <Card
                             key={device.id}
-                            className="relative w-96 min-h-40 flex flex-col justify-between"
+                            className="relative w-152 min-h-40 flex flex-col justify-between z-5"
                         >
                             <div className="absolute top-4 right-4">
                                 <Badge variant={device.status === "ONLINE" ? "online" : "offline"} className="flex items-center gap-1">
