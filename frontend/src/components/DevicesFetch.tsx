@@ -39,7 +39,7 @@ export function DeviceFetcher({ devices, setDevices, fetchDevices }: DeviceFetch
                             <div className="w-full">
                                 <CardHeader  className="px-10 pt-4 pb-0 flex items-center gap-2">
                                     <CardTitle>{device.name}</CardTitle>
-                                    <CardDescription>{device.ipAddress}</CardDescription>
+                                    <CardDescription>({device.ipAddress})</CardDescription>
                                 </CardHeader>
                                 <CardContent className="justify-self-start">
                                     <div className="mt-1">
