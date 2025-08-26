@@ -6,7 +6,7 @@ import type {Dispatch, SetStateAction} from "react";
 import {PingDeviceButton} from "@/components/PingDeviceButton.tsx";
 import {DeviceLogs} from "@/components/DeviceLogs.tsx";
 import {Badge} from "@/components/ui/badge";
-import {Info} from "lucide-react";
+import {Info, Wifi, WifiOff} from "lucide-react";
 import {HoverCard, HoverCardContent, HoverCardTrigger} from "@radix-ui/react-hover-card";
 
 type DeviceFetcherProps = {
@@ -31,7 +31,8 @@ export function DeviceFetcher({ devices, setDevices, fetchDevices }: DeviceFetch
                             className="relative w-96 min-h-40 flex flex-col justify-between"
                         >
                             <div className="absolute top-4 right-4">
-                                <Badge variant={device.status === "ONLINE" ? "online" : "offline"}>
+                                <Badge variant={device.status === "ONLINE" ? "online" : "offline"} className="flex items-center gap-1">
+                                    {device.status === "ONLINE" ? <Wifi className="w-4 h-4 mr-1" /> : <WifiOff className="w-4 h-4 mr-1" />}
                                     {device.status ?? "OFFLINE"}
                                 </Badge>
                             </div>

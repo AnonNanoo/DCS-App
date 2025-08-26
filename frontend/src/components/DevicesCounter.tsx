@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { Badge } from "@/components/ui/badge";
 import type { Device } from "@/types/device";
 import Counter from "@/components/anim/Components/Counter/Counter";
+import {Wifi, WifiOff} from "lucide-react";
 
 export function DevicesCounter({ devices }: { devices: Device[] }) {
     const [onlineCount, setOnlineCount] = useState(0);
@@ -18,6 +19,7 @@ export function DevicesCounter({ devices }: { devices: Device[] }) {
     return (
         <div className="flex gap-4 p-4">
             <Badge variant="online" className="flex items-center gap-1">
+                <Wifi className="w-4 h-4 mr-1" />
                 Online:
                 <Counter
                     value={onlineCount}
@@ -29,6 +31,7 @@ export function DevicesCounter({ devices }: { devices: Device[] }) {
                 />
             </Badge>
             <Badge variant="offline" className="flex items-center gap-1">
+                <WifiOff className="w-4 h-4 mr-1" />
                 Offline:
                 <Counter
                     value={offlineCount}
