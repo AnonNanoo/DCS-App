@@ -1,5 +1,5 @@
 import { Button } from "@/components/ui/button";
-import { Loader2Icon } from "lucide-react";
+import {Loader2Icon, Radio} from "lucide-react";
 import {type Dispatch, type SetStateAction, useState} from "react";
 import type { Device } from "@/types/device";
 
@@ -61,7 +61,7 @@ export function PingDeviceButton({ deviceId, setDevices }: PingDeviceButtonProps
     return (
         <Button onClick={handlePing} disabled={loading}>
             {loading && <Loader2Icon className="w-5 h-5 mr-2 animate-spin" />}
-            {loading ? "Pinging..." : "Ping"}
+            {loading ? "pinging..." : <><Radio />Ping</>}
         </Button>
     );
 }

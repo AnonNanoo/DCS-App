@@ -12,6 +12,7 @@ createRoot(document.getElementById('root')!).render(
           sparkRadius={15}
           sparkCount={8}
           duration={400}
+
       >
         <App />
       </ClickSpark>
