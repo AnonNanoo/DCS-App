@@ -10,6 +10,7 @@ import {
     DialogTrigger
 } from "@/components/ui/dialog";
 import type { Log } from "@/types/log";
+import { LucideClipboardList } from 'lucide-react';
 
 interface DeviceLogsProps {
     deviceId: string;
@@ -44,7 +45,7 @@ export function DeviceLogs({ deviceId }: DeviceLogsProps) {
     return (
         <Dialog open={open} onOpenChange={setOpen}>
             <DialogTrigger asChild>
-                <Button>{open ? "Hide Logs" : "Show Logs"}</Button>
+                <Button>{open ? <><LucideClipboardList />Hide Logs</> : <><LucideClipboardList />Show Logs</>}</Button>
             </DialogTrigger>
             <DialogContent className="max-w-lg max-h-[70vh] overflow-auto">
                 <DialogHeader>

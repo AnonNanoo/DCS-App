@@ -1,6 +1,7 @@
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogFooter, DialogTrigger } from "@/components/ui/dialog"
 import { Button } from "@/components/ui/button"
 import { useState } from "react"
+import {Trash2} from "lucide-react";
 
 type DeleteDeviceDialogProps = {
     id: string
@@ -38,7 +39,7 @@ export function DeleteDeviceDialog({ id, name, onDeleted }: DeleteDeviceDialogPr
     return (
         <Dialog open={open} onOpenChange={setOpen}>
             <DialogTrigger asChild>
-                <Button variant="destructive" size="sm">Delete</Button>
+                <Button variant="destructive" size="sm"><Trash2 />Delete</Button>
             </DialogTrigger>
             <DialogContent>
                 <DialogHeader>
