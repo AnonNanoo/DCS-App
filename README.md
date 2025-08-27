@@ -2,7 +2,8 @@
 
 > [!NOTE]
 > **Status:** 🚧 Ongoing Project  
-> Aufgrund meines bald volleren Terminkalenders und schulischer Verpflichtungen könnte der Fortschritt langsamer sein als bisher.
+> Aufgrund meines bald volleren Terminkalenders und schulischer Verpflichtungen könnte der Fortschritt langsamer sein als bisher.  
+> ⚠️ **Ganz unten im README finden sie meine Zukunftspläne**
 
 ---
 
@@ -50,10 +51,28 @@ DELETE  /api/status_log/{id}                   → Log-Entry löschen
             
 ````
 
+---
+
+## 🔮 Future Vision
+
+### Geplante Features
+
+1. **CIDR-Block-Unterstützung**  
+   Momentan können nur einzelne IPs überprüft werden (via `nmap -sn` auf bestimmte Adressen).  
+   Zukünftig soll die Möglichkeit bestehen, ganze **CIDR-Ranges** (z. B. `192.168.0.0/24`) zu scannen:  
+   - Automatische Auflösung der Range in einzelne IPs  
+   - Erkennung aller aktiven Hosts innerhalb eines Subnetzes  
+
+2. **Docker-Setup**  
+   Bereitstellung eines vollständigen Docker-Deployments zur einfachen und portablen Bereitstellung.
+
+3. **Erweiterte Statusberichte**  
+   - Historische Uptime-Statistiken  
+   - Exportfunktionen (CSV, JSON)  
+   - Benachrichtigungen bei Statusänderungen  
 
 ---
 
 Made with ☕ + 💻 by AnonNanoo
 
 Copyright © 2025 AnonNanoo. All Rights Reserved.
-
