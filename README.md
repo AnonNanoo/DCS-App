@@ -3,7 +3,7 @@
 > [!NOTE]
 > **Status:** 🚧 Ongoing Project  
 > Aufgrund meines bald volleren Terminkalenders und schulischer Verpflichtungen könnte der Fortschritt langsamer sein als bisher.  
-> ⚠️ **Ganz unten im README finden sie meine Zukunftspläne**
+> ⚠️ **Weiter unten gibt es ein Tutorial und ganz unten im README finden sie meine Zukunftspläne!**
 
 ---
 
@@ -29,6 +29,110 @@ Ein Fullstack-Projekt zur Überwachung von Netzwerkgeräten, prüft automatisch 
 - Anzeige des aktuellen Status (🟢 online / 🔴 offline)
 - Logging der Statusänderungen in der Datenbank
 - Frontend mit Tabellenansicht / Card-ansicht und Live-Status
+
+
+---
+
+## 🚀 Tutorial: DCS-App starten
+
+### 1️⃣ Datenbank erstellen
+
+Bevor die Applikation läuft, muss die Datenbank angelegt werden.
+Achte darauf, **keinen Bindestrich `-` im Namen zu verwenden**, da MySQL Probleme damit hat.
+Beispiel:
+
+```sql
+CREATE DATABASE dcs_app;
+```
+
+---
+
+### 2️⃣ Backend konfigurieren
+
+1. Gehe ins Backend Verzeichnis.
+2. Kreiere die Datei:
+
+```
+src/main/resources/application.properties
+```
+
+3. Passe die Datenbank Zugangsdaten, die in der application.properties.example zu finden sind an:
+
+```properties
+spring.application.name=backend
+
+# Database Configuration
+spring.datasource.url=jdbc:mysql://localhost:3306/dcs_app
+spring.datasource.username=DEIN_DB_BENUTZERNAME
+spring.datasource.password=DEIN_DB_PASSWORT
+spring.datasource.driver-class-name=com.mysql.cj.jdbc.Driver
+
+# JPA Configuration
+spring.jpa.hibernate.ddl-auto=update
+spring.jpa.show-sql=true
+spring.jpa.properties.hibernate.format_sql=true
+spring.jpa.properties.hibernate.dialect=org.hibernate.dialect.MySQLDialect
+
+# CORS and Redirect Configuration
+frontend.url=http://localhost:3000
+```
+
+> **Hinweis:** `spring.jpa.hibernate.ddl-auto=update` sorgt dafür, dass die Tabellen automatisch erstellt werden, wenn sie noch nicht existieren.
+
+---
+
+### 3️⃣ Backend starten
+
+Im Ordner des Backends:
+
+```bash
+./mvnw spring-boot:run
+```
+
+oder, falls du Maven global installiert hast:
+
+```bash
+mvn spring-boot:run
+```
+
+Das Backend läuft dann auf:
+
+```
+http://localhost:8080
+```
+
+---
+
+### 4️⃣ Frontend starten
+
+1. Gehe ins Frontend Verzeichnis.
+2. Installiere die Abhängigkeiten:
+
+```bash
+npm install --force
+```
+
+3. Starte die Entwicklungsumgebung:
+
+```bash
+npm run dev
+```
+
+Das Frontend läuft dann auf:
+
+```
+http://localhost:3000
+```
+
+---
+
+### 5️⃣ Testen
+
+* Öffne das Frontend im Browser: `http://localhost:3000`
+* Füge ein Gerät hinzu, prüfe den Status und beobachte die Logs.
+* Alle Änderungen werden automatisch in der Datenbank `dcs_app` gespeichert.
+
+---
 
 ## 🛠️ API-Endpunkte (final)
 
@@ -70,6 +174,13 @@ DELETE  /api/status_log/{id}                   → Log-Entry löschen
    - Historische Uptime-Statistiken  
    - Exportfunktionen (CSV, JSON)  
    - Benachrichtigungen bei Statusänderungen  
+
+4. **Professionelle Speedtests**
+
+   * Messung von Download-/Upload-Geschwindigkeit und Latenz pro Gerät
+   * Integration von standardisierten Testmethoden (z. B. via `speedtest-cli` oder ähnliche APIs)
+   * Darstellung der Ergebnisse in übersichtlichen Graphen und Tabellen im Frontend
+   * Optionale automatische Periodik für kontinuierliche Monitoring-Daten
 
 ---
 
