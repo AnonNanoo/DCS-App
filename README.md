@@ -29,9 +29,10 @@
 
 A fullstack project for monitoring network devices. It automatically or manually checks whether devices are reachable (online/offline) and visualizes the status on a nicely designed website.
 
+---                        
+
 ## 👀 Preview
 ![20250827-0620-12 4113460](https://github.com/user-attachments/assets/72c98c55-352a-4d14-8db5-d01454bf8be7)
-
 
 ## 🔧 Tech-Stack
 
