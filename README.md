@@ -29,6 +29,10 @@
 
 A fullstack project for monitoring network devices. It automatically or manually checks whether devices are reachable (online/offline) and visualizes the status on a nicely designed website.
 
+## 👀 Preview
+![20250827-0620-12 4113460](https://github.com/user-attachments/assets/72c98c55-352a-4d14-8db5-d01454bf8be7)
+
+
 ## 🔧 Tech-Stack
 
 * **Frontend**: <a href="https://www.typescriptlang.org/"> <img src="https://img.shields.io/badge/TypeScript-blue?style=for-the-badge&logo=typescript&logoColor=white"/> </a> <a href="https://react.dev/"> <img src="https://img.shields.io/badge/React-61DAFB?style=for-the-badge&logo=react&logoColor=blue"/> </a> <a href="https://shadcn.com/" target="_blank"> <img src="https://img.shields.io/badge/Shadcn-000000?style=for-the-badge&logo=shadcn&logoColor=white" alt="Shadcn"/> </a> <a href="https://reactbits.dev/" target="_blank"> <img src="https://img.shields.io/badge/React%20Bits-000000?style=for-the-badge&logo=https://reactbits.dev/assets/react-bits-logo-BEVRCkxh.svg&logoColor=white" alt="React Bits"/> </a> <a href="https://vitejs.dev/" target="_blank"> <img src="https://img.shields.io/badge/Vite-646CFF?style=for-the-badge&logo=vite&logoColor=white" alt="Vite"/> </a> <a href="https://tailwindcss.com/" target="_blank"> <img src="https://img.shields.io/badge/TailwindCSS-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white" alt="TailwindCSS"/> </a>
