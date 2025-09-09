@@ -1,4 +1,12 @@
+<div align="center">
+  
 # Device Connection Surveillance App
+
+[![GitHub release (latest by date)](https://img.shields.io/github/v/release/AnonNanoo/DCS-App?display_name=tag&label=Latest%20Release&color=brightgreen)](https://github.com/AnonNanoo/DCS-App/releases)
+[![GitHub contributors](https://img.shields.io/github/contributors/AnonNanoo/DCS-App?label=Contributors&color=gold)](https://github.com/AnonNanoo/DCS-App/graphs/contributors)
+[![GitHub last commit](https://img.shields.io/github/last-commit/AnonNanoo/DCS-App?label=Last%20Commit&color=teal)](https://github.com/AnonNanoo/DCS-App/commits/main)
+[![GitHub commit activity](https://img.shields.io/github/commit-activity/m/AnonNanoo/DCS-App?label=Monthly%20Commits&color=blue)](https://github.com/AnonNanoo/DCS-App/pulse)
+</div>
 
 > [!NOTE]
 > **Status:** 🚧 Ongoing Project  
