@@ -17,10 +17,43 @@ Ein Fullstack-Projekt zur Überwachung von Netzwerkgeräten, prüft automatisch 
 
 ## 🔧 Tech-Stack
 
-- **Frontend**: React + Vite + Tailwind + Shadcn/UI
-- **Backend**: Spring Boot + REST + JPA
-- **Datenbank**: MySQL (oder H2 für Tests)
-- **Features**: Periodischer Reachability-Check (Ping)
+- **Frontend**:  
+  <a href="https://www.typescriptlang.org/">
+  <img src="https://img.shields.io/badge/TypeScript-blue?style=for-the-badge&logo=typescript&logoColor=white"/>
+  </a>
+  <a href="https://react.dev/">
+  <img src="https://img.shields.io/badge/React-61DAFB?style=for-the-badge&logo=react&logoColor=blue"/>
+  </a>
+  <a href="https://shadcn.com/" target="_blank">
+    <img src="https://img.shields.io/badge/Shadcn-000000?style=for-the-badge&logo=shadcn&logoColor=white" alt="Shadcn"/>
+  </a>
+  <a href="https://reactbits.dev/" target="_blank">
+  <img src="https://img.shields.io/badge/React%20Bits-000000?style=for-the-badge&logo=https://reactbits.dev/assets/react-bits-logo-BEVRCkxh.svg&logoColor=white" alt="React Bits"/>
+  </a>
+  <a href="https://vitejs.dev/" target="_blank">
+    <img src="https://img.shields.io/badge/Vite-646CFF?style=for-the-badge&logo=vite&logoColor=white" alt="Vite"/>
+  </a>
+  <a href="https://tailwindcss.com/" target="_blank">
+    <img src="https://img.shields.io/badge/TailwindCSS-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white" alt="TailwindCSS"/>
+  </a>
+  
+- **Backend**:  
+  <a href="https://spring.io/projects/spring-boot">
+  <img src="https://img.shields.io/badge/Spring%20Boot-6DB33F?style=for-the-badge&logo=springboot&logoColor=white"/>
+  </a>
+  <a href="https://jakarta.ee/specifications/persistence/" target="_blank">
+  <img src="https://img.shields.io/badge/JPA-6DB33F?style=for-the-badge&logo=java&logoColor=white" alt="JPA"/>
+  </a>
+  
+- **Datenbank**:  
+  <a href="https://www.mysql.com/">
+  <img src="https://img.shields.io/badge/MySQL-005C84?style=for-the-badge&logo=mysql&logoColor=white"/>
+  </a>
+
+- **Features**:  
+  <a href="https://nmap.org/">
+  <img src="https://img.shields.io/badge/Nmap-9BE000?style=for-the-badge&logo=nmap&logoColor=black"/>
+  </a>(Host Reachability-Check)
 
 ## 📋 Features
 
