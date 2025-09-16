@@ -14,7 +14,7 @@
 
 > \[!NOTE]
 > **Status:** 🚧 Ongoing Project
-> Due to my increasingly busy schedule and school commitments, progress might be slower than before or even put to a halt.
+> Due to my increasingly busy schedule and school commitments, progress might be slower than before or even put to a halt.  
 > ⚠️ **Further down there’s a tutorial, and at the very end of the README you can find my future plans!**
 
 ---
