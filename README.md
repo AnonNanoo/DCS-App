@@ -14,7 +14,7 @@
 
 > \[!NOTE]
 > **Status:** 🚧 Ongoing Project
-> Due to my increasingly busy schedule and school commitments, progress might be slower than before.
+> Due to my increasingly busy schedule and school commitments, progress might be slower than before or even put to a halt.
 > ⚠️ **Further down there’s a tutorial, and at the very end of the README you can find my future plans!**
 
 ---
@@ -173,7 +173,6 @@ GET     /api/status_logs/latest/{deviceId}     → Latest log entry of a device
 POST    /api/status_logs                       → Add new log entry  
 DELETE  /api/status_log/{id}                   → Delete log entry
 
-            
 ```
 
 ---
