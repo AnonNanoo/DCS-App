@@ -18,10 +18,6 @@ public class Device {
     @Column(nullable = false)
     private String name;
 
-    @Column
-    private LocalDateTime previousCheck;
-
-
     public Device() {}
 
     public Device(UUID id, String ipAddress, String name) {
@@ -32,10 +28,6 @@ public class Device {
 
     public UUID getId() {
         return id;
-    }
-
-    public void setId(UUID id) {
-        this.id = id;
     }
 
     public String getIpAddress() {
@@ -53,8 +45,6 @@ public class Device {
     public void setName(String name) {
         this.name = name;
     }
-
-
 
 
     @Override

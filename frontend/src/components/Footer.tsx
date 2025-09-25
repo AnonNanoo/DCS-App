@@ -25,7 +25,7 @@ export default function Footer() {
                             <img
                                 src={githubAvatar}
                                 alt="GitHub Avatar"
-                                className="w-8 h-8 rounded-full border border-gray-300"
+                                className="w-8 h-8 rounded-full border border-black-300"
                             />
                         </a>
                         <button
